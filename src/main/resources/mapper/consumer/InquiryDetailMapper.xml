@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.consumer.dao.InquiryDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.consumer.entity.InquiryDetail">
+        <id column="id" property="id" />
+        <result column="fk_inquiry_id" property="fkInquiryId" />
+        <result column="fk_service_item_id" property="fkServiceItemId" />
+        <result column="service_item_name" property="serviceItemName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fk_inquiry_id, fk_service_item_id, service_item_name
+    </sql>
+
+</mapper>

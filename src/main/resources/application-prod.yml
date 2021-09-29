@@ -1,0 +1,76 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/homemaking?useUnicode=true&characterEncoding=utf-8
+    username: mysql
+    password: Ceshi@mysql@2020
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.company.homemaking.*.entity
+  mapper-locations: classpath:mapper/*/*.xml
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  typeEnumsPackage: com.company.homemaking.common.enums
+    #  configuration:
+  # 是否将sql打印到控制面板(该配置会将sql语句和查询的结果都打印到控制台)
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+swagger2:
+  package: com.company.homemaking.business.controller
+  title: "家政系统"
+
+shiro:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    poolmax-active: 8
+    timeout: 0
+    pool:
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+
+# Redis
+redisKey:
+  password:
+  single-host: 127.0.0.1
+  single-port: 6379
+  # 缓存时间
+  expire_time: 3600
+  custom_time: 1800
+  prefix:
+    # 用户登录信息前缀
+    user_session: 'vontown_wechat_session:'
+    # 号码登录次数前缀
+    sms_time:
+      key: 'SMS_TIME:'
+      expire_time: 3600
+    # 号码code前缀
+    sms_code:
+      key: 'SMS_CODE:'
+      expire_time: 120
+      reserve_time: 60
+
+# Redis 一段时间允许发送几条短信
+mobile_number_ceiling: 300
+
+wechat:
+  #小程序appid
+  app_id: "wxc311fc68aaf4341d"
+  app_secret: "84a483acb06ed81882a505e08b36609a"
+  #公众号appid
+  public_app_id: "wx230f687e1d956b9e"
+  public_app_secret: "9d37405a45a7d402e550b2fe0ee8c82e"
+  #商户号
+  mch_id: "1591826451"
+  paterner_key: "pYTHOvch7mkJuWUwvoroCyZ2z6m19Ogw"
+  #模板号
+  template_id: "NzViu8ZHLX4KdiHN2H8nSIISuiBda8-RniLi5E7vnaQ"
+  #异步通知地址
+  notify_url: "http://marketing.vontown.allfang.com/consumer/pay/notify"

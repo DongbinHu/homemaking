@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.business.dao.BusSysUserRoleBindMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.business.entity.BusSysUserRoleBind">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="role_id" property="roleId" />
+        <result column="if_delete" property="ifDelete" />
+        <result column="create_date" property="createDate" />
+    </resultMap>
+
+    <resultMap id="BaseResultMap2" type="com.company.homemaking.business.vo.sysuser.ShiroSysUserRoleVO">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, role_id, if_delete, create_date
+    </sql>
+
+    <select id="selByUserIdRoles" resultMap="BaseResultMap2">
+    SELECT
+        tsurb.id,
+        tsurb.user_id,
+        tsr.role_name
+    FROM
+        tb_sys_role tsr,
+        tb_sys_user_role_bind tsurb
+    WHERE
+        tsr.id = tsurr.role_id
+    AND tsurb.if_delete = 0
+    AND tsurb.user_id = #{userId,jdbcType=INTEGER}
+  </select>
+</mapper>

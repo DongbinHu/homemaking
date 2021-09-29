@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.consumer.dao.CustomerAddressMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.consumer.entity.CustomerAddress">
+        <id column="id" property="id" />
+        <result column="fk_customer_id" property="fkCustomerId" />
+        <result column="city" property="city" />
+        <result column="distirct" property="distirct" />
+        <result column="street" property="street" />
+        <result column="community" property="community" />
+        <result column="address" property="address" />
+        <result column="if_delete" property="ifDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fk_customer_id, city, distirct, street, community, address, if_delete
+    </sql>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.consumer.dao.ContractMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.consumer.entity.Contract">
+        <id column="id" property="id" />
+        <result column="fk_order_id" property="fkOrderId" />
+        <result column="fk_customer_id" property="fkCustomerId" />
+        <result column="fk_worker_id" property="fkWorkerId" />
+        <result column="contract_file_url" property="contractFileUrl" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fk_order_id, fk_customer_id, fk_worker_id, contract_file_url
+    </sql>
+
+</mapper>

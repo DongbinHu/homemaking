@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.consumer.dao.WorkerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.consumer.entity.Worker">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="true_name" property="trueName" />
+        <result column="phone_number" property="phoneNumber" />
+        <result column="birthday" property="birthday" />
+        <result column="gender" property="gender" />
+        <result column="qrcode_url" property="qrcodeUrl" />
+        <result column="avatar_url" property="avatarUrl" />
+        <result column="wechat_nick_name" property="wechatNickName" />
+        <result column="wechat_avatar_url" property="wechatAvatarUrl" />
+        <result column="wehchat_gender" property="wehchatGender" />
+        <result column="wechat_country" property="wechatCountry" />
+        <result column="wechat_province" property="wechatProvince" />
+        <result column="wechat_language" property="wechatLanguage" />
+        <result column="wechat_phone_number" property="wechatPhoneNumber" />
+        <result column="wechat_country_code" property="wechatCountryCode" />
+        <result column="wechat_pure_phone_number" property="wechatPurePhoneNumber" />
+        <result column="wechat_city" property="wechatCity" />
+        <result column="wechat_openid" property="wechatOpenid" />
+        <result column="wechat_unionid" property="wechatUnionid" />
+        <result column="work_project" property="workProject" />
+        <result column="status" property="status" />
+        <result column="balance" property="balance" />
+        <result column="work_status" property="workStatus" />
+        <result column="if_auth" property="ifAuth" />
+        <result column="if_delete" property="ifDelete" />
+        <result column="register_date" property="registerDate" />
+        <result column="update_date" property="updateDate" />
+        <result column="last_login_date" property="lastLoginDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, true_name, phone_number, birthday, gender, qrcode_url, avatar_url, wechat_nick_name, wechat_avatar_url, wehchat_gender, wechat_country, wechat_province, wechat_language, wechat_phone_number, wechat_country_code, wechat_pure_phone_number, wechat_city, wechat_openid, wechat_unionid, work_project, status, balance, work_status, if_auth, if_delete, register_date, update_date, last_login_date
+    </sql>
+
+</mapper>

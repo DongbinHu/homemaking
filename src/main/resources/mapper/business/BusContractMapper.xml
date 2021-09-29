@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.business.dao.BusContractMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.business.entity.BusContract">
+        <id column="id" property="id" />
+        <result column="fk_order_id" property="fkOrderId" />
+        <result column="fk_customer_id" property="fkCustomerId" />
+        <result column="fk_worker_id" property="fkWorkerId" />
+        <result column="contract_file_url" property="contractFileUrl" />
+    </resultMap>
+
+    <resultMap id="ResultMapWithOtherInfo" type="com.company.homemaking.business.vo.order.ContractVO">
+        <id column="id" property="id" />
+        <result column="fk_order_id" property="fkOrderId" />
+        <result column="order_code" property="orderCode" />
+        <result column="fk_customer_id" property="fkCustomerId" />
+        <result column="customer_name" property="customerName" />
+        <result column="customer_mobile" property="customerMobile" />
+        <result column="fk_worker_id" property="fkWorkerId" />
+        <result column="worker_name" property="workerName" />
+        <result column="worker_code" property="workerCode" />
+        <result column="contract_file_url" property="contractFileUrl" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fk_order_id, fk_customer_id, fk_worker_id, contract_file_url
+    </sql>
+    <select id="getContractList" resultMap="ResultMapWithOtherInfo" parameterType="com.company.homemaking.business.vo.order.ContractQueryVO">
+        SELECT
+        tc.id,
+        tc.fk_order_id,
+        o.order_code,
+        tc.fk_customer_id,
+        tcu.true_name customer_name,
+        tcu.phone_number customer_mobile,
+        tc.fk_worker_id,
+        tw.true_name worker_name,
+        tw.`code` worker_code,
+        tc.contract_file_url
+        FROM
+        tb_contract tc,
+        tb_order o,
+        tb_customer tcu,
+        tb_worker tw
+        WHERE
+        tc.fk_order_id = o.id
+        AND tc.fk_customer_id = tcu.id
+        AND tc.fk_worker_id = tw.id
+        <if test="orderCode != null">
+            AND o.order_code = #{orderCode}
+        </if>
+        <if test="customerName != null">
+            AND tcu.true_name LIKE CONCAT('%',#{customerName},'%')
+        </if>
+        <if test="workerName != null">
+            AND tw.true_name LIKE CONCAT('%',#{workerName},'%')
+        </if>
+        <if test="orderId != null">
+            AND o.id = #{orderId}
+        </if>
+    </select>
+
+</mapper>

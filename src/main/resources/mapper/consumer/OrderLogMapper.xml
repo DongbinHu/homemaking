@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.homemaking.consumer.dao.OrderLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.company.homemaking.consumer.entity.OrderLog">
+        <id column="id" property="id" />
+        <result column="fk_order_id" property="fkOrderId" />
+        <result column="order_code" property="orderCode" />
+        <result column="fk_customer_id" property="fkCustomerId" />
+        <result column="customer_name" property="customerName" />
+        <result column="fk_worker_id" property="fkWorkerId" />
+        <result column="worker_name" property="workerName" />
+        <result column="worker_mobile" property="workerMobile" />
+        <result column="operator_type" property="operatorType" />
+        <result column="content" property="content" />
+        <result column="create_date" property="createDate" />
+        <result column="if_delete" property="ifDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, fk_order_id, order_code, fk_customer_id, customer_name, fk_worker_id, worker_name, worker_mobile, operator_type, content, create_date, if_delete
+    </sql>
+
+</mapper>
