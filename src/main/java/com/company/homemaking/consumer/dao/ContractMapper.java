@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author liubangzi
  * @since 2020-05-14
  */
-public interface ContractMapper extends BaseMapper<Contract> {
+public interface ContractMapperTest extends BaseMapper<Contract> {
 
 }
